@@ -8,8 +8,8 @@ drop table Cliente
 drop table Pedido
 drop table Funcionario
 drop table NotaFiscal
-drop table bebida
-drop table prato
+drop table Bebida
+drop table Prato
 
 create table Cliente(cpf_clie numeric(11) primary key,
                      nome_clie varchar(60) not null,

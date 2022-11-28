@@ -15,13 +15,13 @@ import lombok.Setter;
 public class Cliente {
 	@Id
 	@Column (name = "cpf_clie")
-	private int cpfClie;
+	private String cpfClie;
 	@Column (name = "email_clie")
 	private String emailClie;
 	@Column (name = "endereco_clie")
 	private String enderecoClie;
 	@Column (name = "telefone_clie")
-	private int telefoneClie;
+	private String telefoneClie;
 	@Column (name = "nome_clie")
 	private String nomeClie;
 }

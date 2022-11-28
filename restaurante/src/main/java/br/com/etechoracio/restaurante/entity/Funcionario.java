@@ -3,6 +3,7 @@ import java.math.BigDecimal;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 import lombok.Getter;
@@ -19,6 +20,7 @@ public class Funcionario{
     private String emailFun;
     @Column (name = "nome_fun")
     private String nomeFun;
+    @Id
     @Column (name = "cpf_fun")
     private String cpfFun;
     @Column (name = "telefone_fun")

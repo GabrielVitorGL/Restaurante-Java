@@ -27,16 +27,16 @@ public class Pedido {
 	@Column (name = "num_ped")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int numPed;
-	@JoinColumn (name = "cpf_clie")
-    @ManyToOne
-	private int cpfClie;
-	@JoinColumn (name = "cod_beb")
-    @ManyToOne
-	private int codBebida;
-	@JoinColumn (name = "cod_prato")
-    @ManyToOne
-	private int codPrato;
-    @JoinColumn (name = "cpfFun")
-    @ManyToOne
-    private String cpfFun;
+	@JoinColumn(name = "cpf_clie")
+	@ManyToOne
+	private Cliente cliente;
+	@JoinColumn(name = "cod_prato")
+	@ManyToOne
+	private Prato prato;
+	@JoinColumn(name = "cod_beb")
+	@ManyToOne
+	private Bebida bebida;
+	@JoinColumn(name = "cpf_fun")
+	@ManyToOne
+    private Funcionario funcionario;
 }

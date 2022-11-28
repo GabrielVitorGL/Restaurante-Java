@@ -24,7 +24,7 @@ public class Bebida {
 	@Column (name = "nome_beb")
 	private String nomeBebida;
 	@Column (name = "valor_beb")
-	private double valorBebida;
+	private Double valorBebida;
 	@Id
 	@Column (name = "cod_beb")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
