@@ -11,49 +11,49 @@ drop table NotaFiscal
 drop table Bebida
 drop table Prato
 
-create table Cliente(cpf_clie numeric(11) primary key,
+create table Cliente(cpf_clie varchar(11) primary key,
                      nome_clie varchar(60) not null,
                      email_clie varchar(100) not null,
                      endereco_clie varchar(50) not null,
-                     telefone_clie numeric(11) not null
+                     telefone_clie varchar(11) not null
 )
 
-create table Bebida(cod_beb numeric(6) primary key,
+create table Bebida(cod_beb int primary key,
                     nome_beb varchar(40) not null,
 					tam_beb varchar(15) not null,
-                    valor_beb numeric(8,2) not null
+                    valor_beb float not null
 )
 
 
-create table Prato(cod_prato numeric(6) primary key,
+create table Prato(cod_prato int primary key,
                    nome_prato varchar(50) not null,
 				   tam_prato varchar(20) not null,
-				   valor_prato numeric(8,2) not null
+				   valor_prato float not null
 )
 
-create table Funcionario(cpf_fun numeric(11) primary key,
+create table Funcionario(cpf_fun varchar(11) primary key,
                          nome_fun varchar(50) not null,
                          endereco_fun varchar(50) not null,
                          email_fun varchar(100) not null,
-                         telefone_fun numeric(11) not null,
+                         telefone_fun varchar(11) not null,
 						 salario_fun numeric(8,2) not null
 )
 
-create table Pedido(num_ped numeric(6) primary key,
+create table Pedido(num_ped int primary key,
                     dt_ped date not null,
                     horario_ped varchar(5) not null,
-                    cpf_clie numeric(11) CONSTRAINT cpf_clie_ped foreign key references Cliente not null,
-					cod_beb numeric(6) CONSTRAINT cod_beb_ped foreign key references Bebida,
-					cod_prato numeric(6) CONSTRAINT cod_prato_ped foreign key references Prato,
-					cpf_fun numeric(11) CONSTRAINT cpf_fun_ped foreign key references Funcionario
+                    cpf_clie varchar(11) CONSTRAINT cpf_clie_ped foreign key references Cliente not null,
+					cod_beb int CONSTRAINT cod_beb_ped foreign key references Bebida,
+					cod_prato int CONSTRAINT cod_prato_ped foreign key references Prato,
+					cpf_fun varchar(11) CONSTRAINT cpf_fun_ped foreign key references Funcionario
 					)
 
-create table NotaFiscal(cod numeric(6) primary key,
-                        valortotal numeric(8,2) not null,
+create table NotaFiscal(cod int primary key,
+                        valortotal float not null,
                         forma_pag varchar(20) not null,
                         dt_emi date not null,
-                        cpf_clie numeric(11) CONSTRAINT cpf_clie_nf foreign key references Cliente,
-                        num_ped numeric(6) CONSTRAINT num_ped_nf foreign key references Pedido
+                        cpf_clie varchar(11) CONSTRAINT cpf_clie_nf foreign key references Cliente,
+                        num_ped int CONSTRAINT num_ped_nf foreign key references Pedido
 )
 
 
