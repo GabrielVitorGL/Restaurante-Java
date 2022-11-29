@@ -1,14 +1,19 @@
 package br.com.etechoracio.restaurante.entity;
-import java.math.BigDecimal;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
 @Entity
@@ -26,5 +31,5 @@ public class Funcionario{
     @Column (name = "telefone_fun")
     private String telefoneFun;
     @Column (name = "salario_fun")
-    private BigDecimal salarioFun;
+    private double salarioFun;
 }

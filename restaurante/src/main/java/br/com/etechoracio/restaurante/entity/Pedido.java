@@ -1,6 +1,7 @@
 package br.com.etechoracio.restaurante.entity;
 
 import java.sql.Date;
+import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,18 +12,18 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
+@Builder
 @Getter
 @Setter
 @Entity
 @Table(name = "Pedido")
 public class Pedido {
 	@Column (name = "dt_ped")
-	private Date dtPed;
-	@Column (name = "horario_ped")
-	private String horarioPed;
+	private LocalDateTime dtPed;
 	@Id
 	@Column (name = "num_ped")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -39,4 +40,8 @@ public class Pedido {
 	@JoinColumn(name = "cpf_fun")
 	@ManyToOne
     private Funcionario funcionario;
+	
+	public double ObterValorTotal () {
+	    return (prato.getValorPrato() + bebida.getValorBebida());
+	}
 }
